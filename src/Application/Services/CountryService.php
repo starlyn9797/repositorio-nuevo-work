@@ -23,12 +23,19 @@ class CountryService implements CountryServiceInterface
         $search = $request->input('search');
         return $this->repository->get($search);
     }
-    
+
     public function create(CountryRequest $request): Country
     {
         $dto = CountryMap::fromRequest($request);
 
         return $this->repository->create($dto);
+    }
+
+    public function update(int $id, CountryRequest $request): bool
+    {
+        $dto = CountryMap::fromRequest($request);
+
+        return $this->repository->update($id, $dto);
     }
 
 }

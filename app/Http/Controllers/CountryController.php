@@ -33,4 +33,18 @@ class CountryController extends Controller
         return redirect()->route('countries.index')->with('success', 'País creado exitosamente');
     }
 
+    public function edit(int $id)
+    {
+        $country = $this->service->find($id);
+
+        return view('countries.edit', compact('country'));
+    }
+
+    public function update(CountryRequest $request, int $id)
+    {
+        $this->service->update($id, $request);
+
+        return redirect()->route('countries.index')->with('success', 'País actualizado exitosamente');
+    }
+
 }

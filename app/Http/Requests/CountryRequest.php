@@ -11,7 +11,7 @@ class CountryRequest extends FormRequest
     {
         return true;
     }
-
+    
     public function rules(): array
     {
         $countryId = $this->route('country');
