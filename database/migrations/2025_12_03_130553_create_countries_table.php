@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('countries', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
+              $table->string('name')->nullable();
             $table->string('language')->nullable();
             $table->string('iso3', 3)->unique();
             $table->string('numericCode', 3)->unique(); // Cambiado a snake_case
