@@ -20,4 +20,17 @@ class CountryController extends Controller
 
         return view('countries.index', compact('countries'));
     }
+
+    public function create()
+    {
+        return view('countries.create');
+    }
+
+    public function store(CountryRequest $request)
+    {
+        $this->service->create($request);
+
+        return redirect()->route('countries.index')->with('success', 'País creado exitosamente');
+    }
+
 }

@@ -26,4 +26,15 @@ class CountryRepository implements CountryRepositoryInterface
         return $query->paginate(10);
     }
 
+    public function create(CountryDTO $request): Country
+    {
+        $CountryModel = new Country();
+
+        CountryMap::ValueRequest($CountryModel, $request);
+
+        $CountryModel->save();
+
+        return $CountryModel;
+    }
+
 }
