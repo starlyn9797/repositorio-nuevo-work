@@ -50,5 +50,10 @@ class CountryRepository implements CountryRepositoryInterface
 
         return $CountryModel->save();
     }
-
+    
+    public function delete(int $id): bool
+    {
+        $model = Country::find($id);
+        return $model ? $model->delete() : false;
+    }
 }

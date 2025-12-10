@@ -11,4 +11,5 @@ interface CountryRepositoryInterface
     public function create(CountryDTO $request): Country;
     public function find(int $id): ?Country;
     public function update(int $id, CountryDTO $request): bool;
+    public function delete(int $id): bool;
 }

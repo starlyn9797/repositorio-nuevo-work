@@ -47,4 +47,11 @@ class CountryController extends Controller
 
         return redirect()->route('countries.index')->with('success', 'País actualizado exitosamente');
     }
+
+    public function destroy(int $id)
+    {
+        $this->countryServiceInterface->delete($id);
+
+        return redirect()->route('countries.index')->with('success', 'País eliminado exitosamente');
+    }
 }

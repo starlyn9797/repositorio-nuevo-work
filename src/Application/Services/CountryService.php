@@ -41,5 +41,9 @@ class CountryService implements CountryServiceInterface
         $dto = CountryMap::fromRequest($request);
         return $this->repository->update($id, $dto);
     }
-
+    
+    public function delete(int $id): bool
+    {
+        return $this->repository->delete($id);
+    }
 }

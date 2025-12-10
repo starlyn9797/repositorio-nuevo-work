@@ -14,4 +14,5 @@ interface CountryServiceInterface
     public function create(CountryRequest $request): Country;
     public function find(int $id): ?Country;
     public function update(int $id, CountryRequest $request): bool;
+    public function delete(int $id): bool;
 }

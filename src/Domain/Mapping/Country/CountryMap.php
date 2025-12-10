@@ -8,7 +8,7 @@ use App\Src\Domain\DTOs\CountryDTO;
 
 class CountryMap {
     public static function fromRequest(CountryRequest $data): CountryDTO
-    {
+    { 
         $dto = new CountryDTO();
         $dto->setName($data->name);
         $dto->setLanguage($data->language);
