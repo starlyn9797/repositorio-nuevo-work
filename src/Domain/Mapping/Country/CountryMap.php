@@ -25,5 +25,5 @@ class CountryMap {
         $model->iso3 = $data->getIso3();
         $model->numericCode = $data->getNumericCode();
         $model->phoneCode = $data->getPhoneCode();
-    }
+    } 
 }

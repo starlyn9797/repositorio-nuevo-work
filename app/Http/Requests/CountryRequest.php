@@ -37,7 +37,7 @@ class CountryRequest extends FormRequest
                 'size:3',
                 'digits:3',
                 Rule::unique('countries', 'numericCode')->ignore($countryId)
-            ],
+            ], 
             'phoneCode' => 'required|string|max:10',
         ];
     }

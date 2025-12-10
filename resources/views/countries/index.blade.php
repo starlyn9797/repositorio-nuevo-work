@@ -11,7 +11,29 @@
 <body>
     <div class="container-fluid mt-4">
         <div class="row">
-          
+            @if(session('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+            @if(session('error'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+            <div class="col-md-12 mb-3">
+                <div class="mb-3">
+                    <div class="float-md-end">
+                        <a class="btn btn-primary" href="{{ route('countries.create') }}">
+                            <i class="fas fa-plus"></i>Crear Nuevo País
+                        </a>
+                    </div>
+                </div>
+            </div>
 
             <div class="card">
                 <div class="card-body">
@@ -43,9 +65,10 @@
                                     <th>Código Numérico</th>
                                     <th>Código Telefónico</th>
                                     <th>Fecha de Registro</th>
+                                    <th>Acción</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody>     
                                 @foreach ($countries as $country)
                                     <tr>
                                         <td>{{ $country->name }}</td>
@@ -54,6 +77,17 @@
                                         <td>{{ $country->numericCode }}</td>
                                         <td>{{ $country->phoneCode }}</td>
                                         <td>{{ $country->created_at->format('d/m/Y') }}</td>
+                                        <td style="width: 100px">
+                                            <a href="{{ route('countries.edit', $country->id) }}"
+                                                class="btn btn-outline-primary btn-sm edit" title="Editar">
+                                                <i class="fas fa-pencil-alt"></i>
+                                            </a>
+
+                                            <button id="{{ $country->id }}"
+                                                class="btn btn-outline-danger btn-sm btn-delete" title="Eliminar">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

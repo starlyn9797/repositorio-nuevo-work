@@ -13,6 +13,7 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 class CountryService implements CountryServiceInterface
 {
     private CountryRepository $repository;
+
     public function __construct()
     {
         $this->repository = new CountryRepository();
@@ -27,8 +28,18 @@ class CountryService implements CountryServiceInterface
     public function create(CountryRequest $request): Country
     {
         $dto = CountryMap::fromRequest($request);
-
         return $this->repository->create($dto);
+    }
+
+    public function find(int $id): ?Country
+    {
+        return $this->repository->find($id);
+    }
+
+    public function update(int $id, CountryRequest $request): bool
+    {
+        $dto = CountryMap::fromRequest($request);
+        return $this->repository->update($id, $dto);
     }
 
 }

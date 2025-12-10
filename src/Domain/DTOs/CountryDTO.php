@@ -54,7 +54,7 @@ class CountryDTO
     public function getPhoneCode(): string
     {
         return $this->phoneCode;
-    }
+    } 
 
     public function setPhoneCode(string $phoneCode): void
     {

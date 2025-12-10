@@ -37,4 +37,18 @@ class CountryRepository implements CountryRepositoryInterface
         return $CountryModel;
     }
 
+    public function find(int $id): ?Country
+    {
+        return Country::find($id);
+    }
+
+    public function update(int $id, CountryDTO $request): bool
+    {
+        $CountryModel = Country::find($id);
+
+        CountryMap::ValueRequest($CountryModel, $request);
+
+        return $CountryModel->save();
+    }
+
 }
