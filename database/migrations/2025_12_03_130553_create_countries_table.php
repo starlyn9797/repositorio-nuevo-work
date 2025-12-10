@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('countries', function (Blueprint $table) {
@@ -16,8 +13,8 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('language')->nullable();
             $table->string('iso3', 3)->unique();
-            $table->string('numericCode', 3)->unique(); // Cambiado a snake_case
-            $table->string('phoneCode', 10); // Cambiado a snake_case
+            $table->string('numericCode', 3)->unique(); 
+            $table->string('phoneCode', 10); 
             $table->timestamps();
 
             $table->index('name');
@@ -27,9 +24,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('countries');
