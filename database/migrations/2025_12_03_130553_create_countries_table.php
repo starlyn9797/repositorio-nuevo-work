@@ -13,13 +13,13 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('language')->nullable();
             $table->string('iso3', 3)->unique();
-            $table->string('numericCode', 3)->unique(); 
-            $table->string('phoneCode', 10); 
+            $table->string('numeric_Code', 3)->unique(); 
+            $table->string('phone_Code', 10); 
             $table->timestamps();
 
             $table->index('name');
             $table->index('iso3');
-            $table->index('numericCode');
+            $table->index('numeric_Code');
             $table->timestamps();
         });
     }
