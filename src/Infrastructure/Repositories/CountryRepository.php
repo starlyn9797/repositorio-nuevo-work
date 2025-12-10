@@ -4,6 +4,8 @@ namespace App\Src\Infrastructure\Repositories;
 
 use App\Src\Domain\Interfaces\CountryRepositoryInterface;
 use App\Models\Country;
+use App\Src\Domain\DTOs\CountryDTO;
+use App\Src\Domain\Mapping\Country\CountryMap;
 
 class CountryRepository implements CountryRepositoryInterface
 {
@@ -22,6 +24,17 @@ class CountryRepository implements CountryRepositoryInterface
         }
 
         return $query->paginate(10);
+    }
+
+    public function create(CountryDTO $request): Country
+    {
+        $CountryModel = new Country();
+
+        CountryMap::ValueRequest($CountryModel, $request);
+
+        $CountryModel->save();
+
+        return $CountryModel;
     }
 
 }
