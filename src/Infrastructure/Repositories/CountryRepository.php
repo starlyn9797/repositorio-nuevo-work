@@ -18,8 +18,8 @@ class CountryRepository implements CountryRepositoryInterface
                 $q->where('name', 'like', '%' . $search . '%')
                   ->orWhere('language', 'like', '%' . $search . '%')
                   ->orWhere('iso3', 'like', '%' . $search . '%')
-                  ->orWhere('numericCode', 'like', '%' . $search . '%')
-                  ->orWhere('phoneCode', 'like', '%' . $search . '%');
+                  ->orWhere('numeric_code', 'like', '%' . $search . '%')
+                  ->orWhere('phone_code', 'like', '%' . $search . '%');
             });
         }
 

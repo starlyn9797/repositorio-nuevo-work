@@ -17,13 +17,8 @@ class Country extends Model
         'name',
         'language',
         'iso3',
-        'numericCode',
-        'phoneCode'
-    ];
-    
-    protected $casts = [
-        'createdAt' => 'datetime',
-        'updatedAt' => 'datetime',
+        'numeric_code',
+        'phone_code'
     ];
 
 }

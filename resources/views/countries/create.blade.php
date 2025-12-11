@@ -16,7 +16,7 @@
                         <h3>Crear Nuevo País</h3>
                     </div>
                     <div class="card-body">
-                        @include('countries.partials._form', [
+                        @include('countries.partials.form', [
                             'country' => null,
                             'action' => route('countries.store'),
                             'method' => 'POST',

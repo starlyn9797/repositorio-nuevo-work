@@ -64,7 +64,6 @@
                                     <th>ISO3</th>
                                     <th>Código Numérico</th>
                                     <th>Código Telefónico</th>
-                                    <th>Fecha de Registro</th>
                                     <th>Acción</th>
                                 </tr>
                             </thead>
@@ -74,9 +73,8 @@
                                         <td>{{ $country->name }}</td>
                                         <td>{{ $country->language }}</td>
                                         <td>{{ $country->iso3 }}</td>
-                                        <td>{{ $country->numericCode }}</td>
-                                        <td>{{ $country->phoneCode }}</td>
-                                        <td>{{ $country->created_at->format('d/m/Y') }}</td>
+                                        <td>{{ $country->numeric_code }}</td>
+                                        <td>{{ $country->phone_code }}</td>
                                         <td style="width: 100px">
                                             <a href="{{ route('countries.edit', $country->id) }}"
                                                 class="btn btn-outline-primary btn-sm edit" title="Editar">

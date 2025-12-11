@@ -7,8 +7,8 @@ class CountryDTO
     private string $name;
     private string $language;
     private string $iso3;
-    private string $numericCode;
-    private string $phoneCode;
+    private string $numeric_code;
+    private string $phone_code;
 
     public function getName(): string
     {
@@ -43,22 +43,22 @@ class CountryDTO
 
     public function getNumericCode(): string
     {
-        return $this->numericCode;
+        return $this->numeric_code;
     }
     
     public function setNumericCode(string $numericCode): void
     {
-        $this->numericCode = $numericCode;
+        $this->numeric_code = $numericCode;
     }
 
     public function getPhoneCode(): string
     {
-        return $this->phoneCode;
+        return $this->phone_code;
     }  
 
     public function setPhoneCode(string $phoneCode): void
     {
-        $this->phoneCode = $phoneCode;
+        $this->phone_code = $phoneCode;
     }
 
 }

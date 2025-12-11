@@ -16,7 +16,7 @@
                         <h3>Editar País</h3>
                     </div>
                     <div class="card-body">
-                        @include('countries.partials._form', [
+                        @include('countries.partials.form', [
                             'country' => $country,
                             'action' => route('countries.update', $country->id),
                             'method' => 'PUT',

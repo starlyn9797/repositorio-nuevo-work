@@ -31,14 +31,14 @@ class CountryRequest extends FormRequest
                 'alpha',
                 Rule::unique('countries', 'iso3')->ignore($countryId)
             ],
-            'numericCode' => [
+            'numeric_code' => [
                 'required',
                 'string',
                 'size:3',
                 'digits:3',
-                Rule::unique('countries', 'numericCode')->ignore($countryId)
+                Rule::unique('countries', 'numeric_code')->ignore($countryId)
             ], 
-            'phoneCode' => 'required|string|max:10',
+            'phone_code' => 'required|string|max:10',
         ];
     }
 
@@ -57,13 +57,13 @@ class CountryRequest extends FormRequest
             'iso3.alpha' => 'El código ISO3 debe contener solo letras',
             'iso3.unique' => 'El código ISO3 ya existe',
             
-            'numericCode.required' => 'El código numérico es obligatorio',
-            'numericCode.size' => 'El código numérico debe tener exactamente 3 caracteres',
-            'numericCode.digits' => 'El código numérico debe contener solo dígitos',
-            'numericCode.unique' => 'El código numérico ya existe',
+            'numeric_code.required' => 'El código numérico es obligatorio',
+            'numeric_code.size' => 'El código numérico debe tener exactamente 3 caracteres',
+            'numeric_code.digits' => 'El código numérico debe contener solo dígitos',
+            'numeric_code.unique' => 'El código numérico ya existe',
             
-            'phoneCode.required' => 'El código telefónico es obligatorio',
-            'phoneCode.max' => 'El código telefónico no puede tener más de 10 caracteres',
+            'phone_code.required' => 'El código telefónico es obligatorio',
+            'phone_code.max' => 'El código telefónico no puede tener más de 10 caracteres',
         ];
     }
 }

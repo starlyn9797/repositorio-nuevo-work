@@ -13,8 +13,8 @@ class CountryMap {
         $dto->setName($data->name);
         $dto->setLanguage($data->language);
         $dto->setIso3($data->iso3);
-        $dto->setNumericCode($data->numericCode);
-        $dto->setPhoneCode($data->phoneCode);
+        $dto->setNumericCode($data->numeric_code);
+        $dto->setPhoneCode($data->phone_code);
         return $dto;
     }
 
@@ -23,7 +23,7 @@ class CountryMap {
         $model->name = $data->getName();
         $model->language = $data->getLanguage();
         $model->iso3 = $data->getIso3();
-        $model->numericCode = $data->getNumericCode();
-        $model->phoneCode = $data->getPhoneCode();
+        $model->numeric_code = $data->getNumericCode();
+        $model->phone_code = $data->getPhoneCode();
     } 
 }
