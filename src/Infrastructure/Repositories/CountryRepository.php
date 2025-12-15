@@ -2,12 +2,12 @@
 
 namespace App\Src\Infrastructure\Repositories;
 
-use App\Src\Domain\Interfaces\CountryRepositoryInterface;
 use App\Models\Country;
 use App\Src\Domain\DTOs\CountryDTO;
+use App\Src\Domain\Interfaces\ICountryRepository;
 use App\Src\Domain\Mapping\Country\CountryMap;
 
-class CountryRepository implements CountryRepositoryInterface
+class CountryRepository implements ICountryRepository
 {
     public function get(?string $search = null)
     {
@@ -30,7 +30,7 @@ class CountryRepository implements CountryRepositoryInterface
     {
         $CountryModel = new Country();
 
-        CountryMap::ValueRequest($CountryModel, $request);
+        CountryMap::commandToModel($CountryModel, $request);
 
         $CountryModel->save();
 
@@ -46,7 +46,7 @@ class CountryRepository implements CountryRepositoryInterface
     {
         $CountryModel = Country::find($id);
 
-        CountryMap::ValueRequest($CountryModel, $request);
+        CountryMap::commandToModel($CountryModel, $request);
 
         return $CountryModel->save();
     }

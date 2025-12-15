@@ -5,7 +5,7 @@ namespace App\Src\Domain\Interfaces;
 use App\Models\Country;
 use App\Src\Domain\DTOs\CountryDTO;
 
-interface CountryRepositoryInterface
+interface ICountryRepository
 {
     public function get(?string $search = null);
     public function create(CountryDTO $request): Country;
