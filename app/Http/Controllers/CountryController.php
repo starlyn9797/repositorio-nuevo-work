@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CountryRequest;
-use App\Src\Domain\Interfaces\CountryServiceInterface;
+use App\Src\Domain\Interfaces\ICountryService;
 use Illuminate\Http\Request;
 
 class CountryController extends Controller
 {
-    private CountryServiceInterface $countryServiceInterface;
+    private ICountryService $countryServiceInterface;
 
-    public function __construct(CountryServiceInterface $countryService)
+    public function __construct(ICountryService $countryService)
     {
         $this->countryServiceInterface = $countryService;
     }
@@ -31,8 +31,12 @@ class CountryController extends Controller
     {
         $this->countryServiceInterface->create($request);
 
-        return redirect()->route('countries.index')->with('success', 'País creado exitosamente');
+        return redirect()->route('countries.index')->with('alert', [
+            'type' => 'success',
+            'message' => 'País creado exitosamente'
+        ]);
     }
+
 
     public function edit(int $id)
     {
@@ -45,13 +49,21 @@ class CountryController extends Controller
     {
         $this->countryServiceInterface->update($id, $request);
 
-        return redirect()->route('countries.index')->with('success', 'País actualizado exitosamente');
+        return redirect()->route('countries.index')->with('alert', [
+            'type' => 'info',
+            'message' => 'País actualizado exitosamente'
+        ]);
+
     }
 
-    public function destroy(int $id)
+    public function destroy($id)
     {
-        $this->countryServiceInterface->delete($id);
+        $this->countryServiceInterface->delete((int) $id);
 
-        return redirect()->route('countries.index')->with('success', 'País eliminado exitosamente');
+        return redirect()->route('countries.index')->with('alert', [
+            'type' => 'danger',
+            'message' => 'País eliminado exitosamente'
+        ]);    
     }
+
 }

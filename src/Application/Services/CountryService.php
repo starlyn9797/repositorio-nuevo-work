@@ -4,13 +4,13 @@ namespace App\Src\Application\Services;
 
 use App\Http\Requests\CountryRequest;
 use App\Models\Country;
-use App\Src\Domain\Interfaces\CountryServiceInterface;
+use App\Src\Domain\Interfaces\ICountryService;
 use App\Src\Domain\Mapping\Country\CountryMap;
 use App\Src\Infrastructure\Repositories\CountryRepository;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
-class CountryService implements CountryServiceInterface
+class CountryService implements ICountryService
 {
     private CountryRepository $repository;
 
@@ -27,7 +27,7 @@ class CountryService implements CountryServiceInterface
 
     public function create(CountryRequest $request): Country
     {
-        $dto = CountryMap::fromRequest($request);
+        $dto = CountryMap::requestToCommand($request);
         return $this->repository->create($dto);
     }
 
@@ -38,7 +38,7 @@ class CountryService implements CountryServiceInterface
 
     public function update(int $id, CountryRequest $request): bool
     {
-        $dto = CountryMap::fromRequest($request);
+        $dto = CountryMap::requestToCommand($request);
         return $this->repository->update($id, $dto);
     }
     
