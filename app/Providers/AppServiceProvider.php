@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Src\Domain\Interfaces\CountryServiceInterface;
 use Illuminate\Support\ServiceProvider;
 use App\Src\Application\Services\CountryService;
 use App\Src\Domain\Interfaces\ICountryRepository;
