@@ -3,7 +3,6 @@
 @section('title', 'Listado de Países')
 
 @section('content')
-    @include('partials.alerts')
 
     <div class="row">
         <div class="col-md-12 mb-3">

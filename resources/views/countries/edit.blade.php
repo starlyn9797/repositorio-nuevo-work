@@ -3,7 +3,6 @@
 @section('title', 'Editar País')
 
 @section('content')
-    @include('partials.alerts')
     
     <div class="row justify-content-center">
         <div class="col-md-8">

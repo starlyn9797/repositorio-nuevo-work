@@ -24,7 +24,6 @@ class CountryDTO
     {
         return $this->language;
     }
-
    
     public function setLanguage(string $language): void
     {

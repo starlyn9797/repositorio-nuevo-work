@@ -1,4 +1,3 @@
-@include('partials.alerts')
 
 <form action="{{ $action }}" method="POST">
     @csrf
