@@ -7,23 +7,23 @@ use App\Models\Country;
 use App\Src\Domain\DTOs\CountryDTO;
 
 class CountryMap {
-    public static function fromRequest(CountryRequest $data): CountryDTO
+    public static function requestToCommand(CountryRequest $country): CountryDTO
     { 
         $dto = new CountryDTO();
-        $dto->setName($data->name);
-        $dto->setLanguage($data->language);
-        $dto->setIso3($data->iso3);
-        $dto->setNumericCode($data->numeric_code);
-        $dto->setPhoneCode($data->phone_code);
+        $dto->setName($country->input('name'));
+        $dto->setLanguage($country->input('language'));
+        $dto->setIso3($country->input('iso3'));
+        $dto->setNumericCode($country->input('numeric_code'));
+        $dto->setPhoneCode($country->input('phone_code'));
         return $dto;
     }
 
-    public static function ValueRequest(Country $model, CountryDTO $data): void
+    public static function commandToModel(Country $country, CountryDTO $countryDto): void
     {
-        $model->name = $data->getName();
-        $model->language = $data->getLanguage();
-        $model->iso3 = $data->getIso3();
-        $model->numeric_code = $data->getNumericCode();
-        $model->phone_code = $data->getPhoneCode();
+        $country->name = $countryDto->getName();
+        $country->language = $countryDto->getLanguage();
+        $country->iso3 = $countryDto->getIso3();
+        $country->numeric_code = $countryDto->getNumericCode();
+        $country->phone_code = $countryDto->getPhoneCode();
     } 
 }
