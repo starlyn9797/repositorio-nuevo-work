@@ -15,15 +15,14 @@ class CountryRepository implements ICountryRepository
 
         if ($search) {
             $query->where(function($q) use ($search) {
-                $q->where('name', 'like', '%' . $search . '%')
-                  ->orWhere('language', 'like', '%' . $search . '%')
-                  ->orWhere('iso3', 'like', '%' . $search . '%')
-                  ->orWhere('numeric_code', 'like', '%' . $search . '%')
-                  ->orWhere('phone_code', 'like', '%' . $search . '%');
+                foreach (Country::FIELDS as $field) {
+                    $q->orWhere($field, 'like', '%' . $search . '%');
+                }
             });
         }
 
-        return $query->paginate(10);
+
+        return $query->paginate(Country::PER_PAGE);
     }
 
     public function create(CountryDTO $request): Country
@@ -53,7 +52,7 @@ class CountryRepository implements ICountryRepository
     
     public function delete(int $id): bool
     {
-        $model = Country::find($id);
-        return $model ? $model->delete() : false;
+        $CountryModel = Country::find($id);
+        return $CountryModel ? $CountryModel->delete() : false;
     }
 }

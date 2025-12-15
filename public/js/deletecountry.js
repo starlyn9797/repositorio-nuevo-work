@@ -4,7 +4,7 @@ const DeleteCountry = {
     },
     handleClick: function(event) {
         const countryId = $(event.currentTarget).attr('id');
-        const deleteUrl = `/countries/${countryId}`;
+        const deleteUrl = $(event.currentTarget).data('url').replace(':id', countryId);
         $('#delete-form').attr('action', deleteUrl);
         $('#delete-modal').modal('show');
     }

@@ -33,10 +33,9 @@ class CountryController extends Controller
 
         return redirect()->route('countries.index')->with('alert', [
             'type' => 'success',
-            'message' => 'País creado exitosamente'
+            'message' => __('messages.country_created')
         ]);
     }
-
 
     public function edit(int $id)
     {
@@ -51,7 +50,7 @@ class CountryController extends Controller
 
         return redirect()->route('countries.index')->with('alert', [
             'type' => 'info',
-            'message' => 'País actualizado exitosamente'
+            'message' => __('messages.country_updated')
         ]);
 
     }
@@ -62,7 +61,7 @@ class CountryController extends Controller
 
         return redirect()->route('countries.index')->with('alert', [
             'type' => 'danger',
-            'message' => 'País eliminado exitosamente'
+            'message' => __('messages.country_deleted')
         ]);    
     }
 

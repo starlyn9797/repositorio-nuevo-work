@@ -13,7 +13,7 @@ class Country extends Model
 
     protected $table = 'countries';
 
-    protected $fillable = [
+    const FIELDS = [
         'name',
         'language',
         'iso3',
@@ -21,4 +21,9 @@ class Country extends Model
         'phone_code'
     ];
 
+    protected $fillable = self::FIELDS;
+    
+    protected $searchable = self::FIELDS;
+
+    const PER_PAGE = 10;
 }
